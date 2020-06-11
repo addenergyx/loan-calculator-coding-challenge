@@ -253,6 +253,8 @@ def build_card(title, colour):
         ]
     )
 
+app.config.suppress_callback_exceptions = True
+
 body = html.Div(
             [
               dbc.Row(
