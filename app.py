@@ -531,7 +531,7 @@ app.layout = Homepage()
 
 if __name__ == '__main__':
     #app.run_server(debug=True, use_reloader=False)
-    app.run_server(debug=False)
+    app.run_server()
 
 
 
