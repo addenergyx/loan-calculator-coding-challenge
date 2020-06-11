@@ -462,6 +462,8 @@ Set layout to be a function so that for each new page load
 the layout is re-created with the current data, otherwise they will see                                                                                                     
 data that was generated when the Dash app was first initialised
 """     
+
+app.scripts.config.serve_locally=True
 app.layout = Homepage()
 
 if __name__ == '__main__':
