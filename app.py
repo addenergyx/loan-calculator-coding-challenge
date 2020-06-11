@@ -11,8 +11,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import dash_daq as daq
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import plotly.graph_objs as go
+from dash_extensions.callback import DashCallbackBlueprint
 import plotly.express as px
 from random import randint
 
@@ -347,45 +348,107 @@ body = html.Div(
                            ], id='main-panel', width=12, lg=8
                      )
                 ], no_gutters=True),
+                dcc.Store(id="sync"),
+                dcc.Store(id="sync2"),
+                dcc.Store(id="sync3")
+
              ])
 
+## https://community.plotly.com/t/synchronize-components-bidirectionally/14158/11
 
+# Create callbacks.
+dcb = DashCallbackBlueprint()
 
-@app.callback(
-    Output('loan-amount', 'value'),
-    [Input('loan-slider', 'value')])
-def update_loan_box(value):
+@dcb.callback(Output("sync", "data"), [Input("loan-amount", "value")])
+def sync_input_value(value):
     return value
 
-@app.callback(
-    Output('loan-slider', 'value'),
-    [Input('loan-amount', 'value')])
-def update_loan_slider(value):
+@dcb.callback(Output("sync", "data"), [Input("loan-slider", "value")])
+def sync_slider_value(value):
     return value
 
-@app.callback(
-    Output('term-length', 'value'),
-    [Input('term-slider', 'value')])
-def update_term_box(value):
+@dcb.callback([Output("loan-amount", "value"), Output("loan-slider", "value")], [Input("sync", "data")],
+              [State("loan-amount", "value"), State("loan-slider", "value")])
+def update_components(current_value, input_prev, slider_prev):
+    # Update only inputs that are out of sync (this step "breaks" the circular dependency).
+    input_value = current_value if current_value != input_prev else dash.no_update
+    slider_value = current_value if current_value != slider_prev else dash.no_update
+    return [input_value, slider_value]
+
+
+
+@dcb.callback(Output("sync2", "data"), [Input("term-length", "value")])
+def sync_term_input_value(value):
     return value
 
-@app.callback(
-    Output('term-slider', 'value'),
-    [Input('term-length', 'value')])
-def term_term_slider(value):
+@dcb.callback(Output("sync2", "data"), [Input("term-slider", "value")])
+def sync_term_slider_value(value):
     return value
 
-@app.callback(
-    Output('interest-rate', 'value'),
-    [Input('rate-slider', 'value')])
-def update_rate_box(value):
+@dcb.callback([Output("term-length", "value"), Output("term-slider", "value")], [Input("sync2", "data")],
+              [State("term-length", "value"), State("term-slider", "value")])
+def update_term_components(current_value, input_prev, slider_prev):
+    # Update only inputs that are out of sync (this step "breaks" the circular dependency).
+    input_value = current_value if current_value != input_prev else dash.no_update
+    slider_value = current_value if current_value != slider_prev else dash.no_update
+    return [input_value, slider_value]
+
+
+
+@dcb.callback(Output("sync3", "data"), [Input("interest-rate", "value")])
+def sync_rate_input_value(value):
     return value
 
-@app.callback(
-    Output('rate-slider', 'value'),
-    [Input('interest-rate', 'value')])
-def update_rate_slider(value):
+@dcb.callback(Output("sync3", "data"), [Input("rate-slider", "value")])
+def sync_rate_slider_value(value):
     return value
+
+@dcb.callback([Output("interest-rate", "value"), Output("rate-slider", "value")], [Input("sync3", "data")],
+              [State("interest-rate", "value"), State("rate-slider", "value")])
+def update_rate_components(current_value, input_prev, slider_prev):
+    # Update only inputs that are out of sync (this step "breaks" the circular dependency).
+    input_value = current_value if current_value != input_prev else dash.no_update
+    slider_value = current_value if current_value != slider_prev else dash.no_update
+    return [input_value, slider_value]
+
+dcb.register(app)
+
+# @app.callback(
+#     Output('loan-amount', 'value'),
+#     [Input('loan-slider', 'value')])
+# def update_loan_box(value):
+#     return value
+
+# @app.callback(
+#     Output('loan-slider', 'value'),
+#     [Input('loan-amount', 'value')])
+# def update_loan_slider(value):
+#     return value
+
+
+# @app.callback(
+#     Output('term-length', 'value'),
+#     [Input('term-slider', 'value')])
+# def update_term_box(value):
+#     return value
+
+# @app.callback(
+#     Output('term-slider', 'value'),
+#     [Input('term-length', 'value')])
+# def term_term_slider(value):
+#     return value
+
+# @app.callback(
+#     Output('interest-rate', 'value'),
+#     [Input('rate-slider', 'value')])
+# def update_rate_box(value):
+#     return value
+
+# @app.callback(
+#     Output('rate-slider', 'value'),
+#     [Input('interest-rate', 'value')])
+# def update_rate_slider(value):
+#     return value
 
 def format_value(num):
     return float('{:0.2f}'.format(num))
@@ -468,7 +531,7 @@ app.layout = Homepage()
 
 if __name__ == '__main__':
     #app.run_server(debug=True, use_reloader=False)
-    app.run_server()
+    app.run_server(debug=False)
 
 
 
