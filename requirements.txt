@@ -1,3 +1,4 @@
+requests==2.23.0
 alabaster==0.7.12
 ansicon==1.89.0
 APScheduler==3.6.3
