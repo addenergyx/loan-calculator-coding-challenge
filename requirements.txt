@@ -110,6 +110,7 @@ parso==0.5.2
 pathtools==0.1.2
 pexpect==4.8.0
 pickleshare==0.7.5
+gunicorn==20.0
 plaid-python==3.9.0
 plotly==4.6.0
 pluggy==0.13.1
