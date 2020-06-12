@@ -524,10 +524,14 @@ def update_slider(amount, rate, length):
         guide = 'Hi there!! Enter some details so we can calculate your loan payment.'
     
     return False, build_fig(df), False, format_amount(tmp), format_amount(principal_interest), format_amount(df['Total Interest'].iloc[-1]), build_table(df), guide
-    
+
+def button():
+    return html.Div([dbc.Button([html.Span(className='fab fa-github icon')], className='fixed-btn', href='https://github.com/addenergyx/cf-coding-challenge', external_link=True)], className='button-container')
+
 def Homepage():
     return html.Div([
             body,
+            button()
         ], id='background')
 
 """

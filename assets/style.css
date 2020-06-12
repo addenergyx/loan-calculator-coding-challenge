@@ -335,10 +335,40 @@ table tr {
     
 }
 
+/* Github button */
+.fixed-btn {
+    border-radius: 150px;
+    height: 65px;
+    width: 65px;
+    transition: background 0.75s;
+    color: white;
+    background-color: blueviolet;
+    border: 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 
+.btn-secondary {
+    background-color: blueviolet;
+}
 
+.fixed-btn:hover {
+  background-color: #119DFF;
+  opacity: .8;
+}
 
+.button-container {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+}
 
-
+.icon {
+    font-size: 30px;
+    color: white;
+}
 
 
