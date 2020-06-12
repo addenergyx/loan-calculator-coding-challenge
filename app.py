@@ -25,20 +25,20 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
                     { 'name':'viewport','content':'width=device-width, initial-scale=1, shrink-to-fit=no' }, ## Fixes media query not showing
                     {
                         'name':'description',
-                        'content':'asdf',
+                        'content':'Mobile friendly Simple Interest Loan Calculator created for the Coder Foundry coding challenge',
                     },
                     {
                         'name':'keywords',
-                        'content':'sdf',
+                        'content':'Interest Loan Calculator',
                     },                        
 
                     {
                         'property':'og:image',
-                        'content':'sdf',
+                        'content':'https://i.imgur.com/FWOeeX0.jpg',
                     },
                     {
                         'name':'title',
-                        'content':'sdf',                    
+                        'content':'Interest Loan Calculator',                    
                     }
                 ]
             )
@@ -65,11 +65,13 @@ app.index_string = '''
 </html>
 '''
 
-app.title = 'fghf'
+app.title = 'Interest Loan Calculator'
 
-colours = {'remaining':'#1FDBB5',
-           'principal':'#F54784',
-           'interest':'#FFAC51'}
+colours = {
+            'remaining':'#1FDBB5',
+            'principal':'#F54784',
+            'interest':'#FFAC51'
+          }
 
 def format_amount(value):
     return '£{:,.2f}'.format(value)
@@ -84,24 +86,32 @@ def amortization(amount, rate, length):
 
     lis = []
     for a in range(1, length+1):
-                
+
         ip = amount * (rate/1200)
-        
+
         pp = tmp - ip
-        
+
         amount -= pp 
-        
+
         if amount < 0:
             amount = 0
         # tmp = tmp - pp # At end each month, Remaining Balance = Previous Remaining Balance - principal payments
-        
+
         total_interest += ip
-        
+
         lis.append([a, tmp, pp, ip, total_interest, amount])
-    
-    df = pd.DataFrame(lis, columns=['Month', 'Payment', 'Principal', 'Interest', 'Total Interest', 'Balance'])
-    
-    return df
+
+    return pd.DataFrame(
+        lis,
+        columns=[
+            'Month',
+            'Payment',
+            'Principal',
+            'Interest',
+            'Total Interest',
+            'Balance',
+        ],
+    )
 
 graph_card = [
                 html.Div([            
@@ -275,7 +285,7 @@ body = html.Div(
                                             ]),
                                             dbc.Col([dcc.Input(value=0, id='loan-amount', type='number')], className='text-right')
                                         ], className="align-items-center"),
-                                       dbc.Row([ dbc.Col([dcc.Slider(id='loan-slider', min=0, max=250000, step=100, value=0)]),]),
+                                       dbc.Row([ dbc.Col([dcc.Slider(id='loan-slider', min=0, max=250000, step=100)]),]),
                                        dbc.Row([
                                             dbc.Col([
                                                 html.P("Term Length", className='balances'),
@@ -284,7 +294,7 @@ body = html.Div(
                                                 dcc.Input(value=0, id='term-length', type='number'),
                                             ], className='text-right'),
                                         ], className="align-items-center"),
-                                        dbc.Row([ dbc.Col([dcc.Slider(id='term-slider', min=0, max=120, step=1, value=0)]),]),
+                                        dbc.Row([ dbc.Col([dcc.Slider(id='term-slider', min=0, max=120, step=1)]),]),
                                         dbc.Row([
                                             dbc.Col([
                                                 html.P("Interest Rate", className='balances'),
@@ -293,7 +303,7 @@ body = html.Div(
                                                 dcc.Input(value=0, id='interest-rate', type='number'),
                                             ], className='text-right'),
                                         ], className="align-items-center"),
-                                        dbc.Row([ dbc.Col([dcc.Slider(id='rate-slider', min=0, max=50, step=.1, value=0)]),]),
+                                        dbc.Row([ dbc.Col([dcc.Slider(id='rate-slider', min=0, max=50, step=.1)]),]),
                                        
                                         html.Div(dbc.Row([ dbc.Col(dbc.Card(stats_card, className='summary-card stats-card'))]), hidden=True, id='statss' )
                                         
