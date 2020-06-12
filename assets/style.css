@@ -50,6 +50,10 @@ p.money {
 .summary-card p, .summary-card H2 {
     margin: 0px;
 }
+    
+#side-data-card p {
+    margin: 1rem;
+}
 
 .stats {
     text-align: center;
@@ -189,8 +193,7 @@ table tr {
     background: #FF0000;
 }
 
-@media screen and (max-width: 600px) {
-  
+@media screen and (max-width: 900px) {
   html,body {
     overflow-y: auto;
   }
@@ -198,6 +201,33 @@ table tr {
   #main-panel {
     overflow-y: hidden;
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+    
+    #main-panel {
+        height:auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  
+  html,body {
+    overflow-y: auto;
+  }
+    
+  #side-panel {
+    margin-right: 0px;
+    height: 120vh;
+  }    
+    
+  #main-panel {
+    overflow-y: hidden;
+    margin-top: 20px;
+    padding-top: 0px;
+    height:auto;
   }
     
   table.amortization-table {
@@ -209,8 +239,12 @@ table tr {
     color: black;
   }
     
-    table th  {
-        display: none;
+  table th  {
+    display: none;
+  }
+    
+    #side-data-card {
+        margin: 2rem 0;
     }
     
 /*
@@ -271,7 +305,6 @@ table tr {
         background: #171818;
         box-shadow:  11px 11px 22px #0d0d0d, 
                      -11px -11px 22px #212323; 
-        margin-right: 30px;
     }
     
     .summary-card {
@@ -282,14 +315,6 @@ table tr {
         background: #171818;
         box-shadow:  11px 11px 22px #0d0d0d, 
                      -11px -11px 22px #212323; 
-    }
-
-    .summary-card p, .summary-card H2 {
-        margin: 0px;
-    }
-    
-    #side-data-card p {
-        margin: 1rem;
     }
     
     p.balances, table.amortization-table td {
@@ -302,7 +327,6 @@ table tr {
     
     #main-panel, #background, body {
         background-color: #171818;
-        padding-right: 10px;
     }
 
     tr:nth-child(even) {

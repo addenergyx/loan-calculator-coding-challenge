@@ -25,7 +25,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
                     { 'name':'viewport','content':'width=device-width, initial-scale=1, shrink-to-fit=no' }, ## Fixes media query not showing
                     {
                         'name':'description',
-                        'content':'Mobile friendly Simple Interest Loan Calculator created for the Coder Foundry coding challenge',
+                        'content':'Simple Interest Loan Calculator created for the Coder Foundry coding challenge',
                     },
                     {
                         'name':'keywords',
@@ -281,14 +281,14 @@ body = html.Div(
                                    [
                                        dbc.Row([
                                             dbc.Col([
-                                                html.P("Loan Amount", className='balances'),
+                                                html.P("Loan Amount (£)", className='balances'),
                                             ]),
                                             dbc.Col([dcc.Input(value=0, id='loan-amount', type='number')], className='text-right')
                                         ], className="align-items-center"),
                                        dbc.Row([ dbc.Col([dcc.Slider(id='loan-slider', min=0, max=250000, step=100)]),]),
                                        dbc.Row([
                                             dbc.Col([
-                                                html.P("Term Length", className='balances'),
+                                                html.P("Term Length (Months)", className='balances'),
                                             ]),
                                             dbc.Col([
                                                 dcc.Input(value=0, id='term-length', type='number'),
@@ -297,7 +297,7 @@ body = html.Div(
                                         dbc.Row([ dbc.Col([dcc.Slider(id='term-slider', min=0, max=120, step=1)]),]),
                                         dbc.Row([
                                             dbc.Col([
-                                                html.P("Interest Rate", className='balances'),
+                                                html.P("Interest Rate (%)", className='balances'),
                                             ]),
                                             dbc.Col([
                                                 dcc.Input(value=0, id='interest-rate', type='number'),
