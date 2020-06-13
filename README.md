@@ -21,4 +21,4 @@ Monthly payments have these details:
 * The Total Interest (see below)
 * The remaining loan balance at the end of the month (see below)
 
-[Dash](https://i.imgur.com/JJotzS2.jpg)
+![Dash](https://i.imgur.com/JJotzS2.jpg)
