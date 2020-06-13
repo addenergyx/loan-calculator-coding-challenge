@@ -34,7 +34,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
 
                     {
                         'property':'og:image',
-                        'content':'https://i.imgur.com/FWOeeX0.jpg',
+                        'content':'https://i.imgur.com/JJotzS2.jpg',
                     },
                     {
                         'name':'title',
@@ -546,12 +546,6 @@ app.layout = Homepage()
 if __name__ == '__main__':
     #app.run_server(debug=True, use_reloader=False)
     app.run_server()
-
-
-
-
-
-
 
 
 

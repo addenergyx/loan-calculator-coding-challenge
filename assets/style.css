@@ -7,12 +7,6 @@ html,body {
     overflow-x: hidden;
 }
 
-/*
-p.money {
-    text-align: right;
-}
-*/
-
 #side-panel, #main-panel {
     padding-top: 80px;
 }
@@ -342,7 +336,6 @@ table tr {
     width: 65px;
     transition: background 0.75s;
     color: white;
-    background-color: blueviolet;
     border: 1px black;
     display: flex;
     align-items: center;
