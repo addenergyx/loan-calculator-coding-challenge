@@ -364,4 +364,6 @@ table tr {
     color: white;
 }
 
-
+.modebar {
+    display: none;
+}
