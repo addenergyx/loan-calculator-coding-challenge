@@ -22,3 +22,7 @@ Monthly payments have these details:
 * The remaining loan balance at the end of the month (see below)
 
 ![Dash](https://i.imgur.com/JJotzS2.jpg)
+
+Also changes colour depending on whether the user is using light or dark theme on their machine 
+
+![Imgur](https://i.imgur.com/AbMGCiX.jpg)
