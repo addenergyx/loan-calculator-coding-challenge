@@ -283,7 +283,7 @@ body = html.Div(
                                             dbc.Col([
                                                 html.P("Loan Amount (£)", className='balances'),
                                             ]),
-                                            dbc.Col([dcc.Input(value=0, id='loan-amount', type='number')], className='text-right')
+                                            dbc.Col([dcc.Input(value=0, id='loan-amount', type='number', min="0")], className='text-right')
                                         ], className="align-items-center"),
                                        dbc.Row([ dbc.Col([dcc.Slider(id='loan-slider', min=0, max=250000, step=100)]),]),
                                        dbc.Row([
@@ -291,7 +291,7 @@ body = html.Div(
                                                 html.P("Term Length (Months)", className='balances'),
                                             ]),
                                             dbc.Col([
-                                                dcc.Input(value=0, id='term-length', type='number'),
+                                                dcc.Input(value=0, id='term-length', type='number', min="0"),
                                             ], className='text-right'),
                                         ], className="align-items-center"),
                                         dbc.Row([ dbc.Col([dcc.Slider(id='term-slider', min=0, max=120, step=1)]),]),
@@ -300,7 +300,7 @@ body = html.Div(
                                                 html.P("Interest Rate (%)", className='balances'),
                                             ]),
                                             dbc.Col([
-                                                dcc.Input(value=0, id='interest-rate', type='number'),
+                                                dcc.Input(value=0, id='interest-rate', type='number', min="0"),
                                             ], className='text-right'),
                                         ], className="align-items-center"),
                                         dbc.Row([ dbc.Col([dcc.Slider(id='rate-slider', min=0, max=50, step=.1)]),]),
