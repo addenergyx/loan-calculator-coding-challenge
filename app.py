@@ -5,22 +5,19 @@ Created on Wed Jun 10 07:02:46 2020
 @author: david
 """
 
-import dash
+from dash import Dash, dcc, html, Input, Output, State, no_update
 import dash_bootstrap_components as dbc
-import dash_core_components as dcc
-import dash_html_components as html
 import pandas as pd
-import dash_daq as daq
-from dash.dependencies import Input, Output, State
+# import dash_daq as daq
 import plotly.graph_objs as go
 from dash_extensions.callback import DashCallbackBlueprint
-import plotly.express as px
+# import plotly.express as px
 from random import randint
 
-external_stylesheets =['https://codepen.io/IvanNieto/pen/bRPJyb.css', dbc.themes.BOOTSTRAP, 
+external_stylesheets =['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP,
                        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
+app = Dash(__name__, external_stylesheets=external_stylesheets,
                 meta_tags=[
                     { 'name':'viewport','content':'width=device-width, initial-scale=1, shrink-to-fit=no' }, ## Fixes media query not showing
                     {
@@ -381,8 +378,8 @@ def sync_slider_value(value):
               [State("loan-amount", "value"), State("loan-slider", "value")])
 def update_components(current_value, input_prev, slider_prev):
     # Update only inputs that are out of sync (this step "breaks" the circular dependency).
-    input_value = current_value if current_value != input_prev else dash.no_update
-    slider_value = current_value if current_value != slider_prev else dash.no_update
+    input_value = current_value if current_value != input_prev else no_update
+    slider_value = current_value if current_value != slider_prev else no_update
     return [input_value, slider_value]
 
 
@@ -399,8 +396,8 @@ def sync_term_slider_value(value):
               [State("term-length", "value"), State("term-slider", "value")])
 def update_term_components(current_value, input_prev, slider_prev):
     # Update only inputs that are out of sync (this step "breaks" the circular dependency).
-    input_value = current_value if current_value != input_prev else dash.no_update
-    slider_value = current_value if current_value != slider_prev else dash.no_update
+    input_value = current_value if current_value != input_prev else no_update
+    slider_value = current_value if current_value != slider_prev else no_update
     return [input_value, slider_value]
 
 
@@ -417,8 +414,8 @@ def sync_rate_slider_value(value):
               [State("interest-rate", "value"), State("rate-slider", "value")])
 def update_rate_components(current_value, input_prev, slider_prev):
     # Update only inputs that are out of sync (this step "breaks" the circular dependency).
-    input_value = current_value if current_value != input_prev else dash.no_update
-    slider_value = current_value if current_value != slider_prev else dash.no_update
+    input_value = current_value if current_value != input_prev else no_update
+    slider_value = current_value if current_value != slider_prev else no_update
     return [input_value, slider_value]
 
 dcb.register(app)
