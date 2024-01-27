@@ -1,9 +1,9 @@
 dash-extensions==0.0.13
-dash==1.11.0
+dash==2.14.2
 dash-bootstrap-components==0.9.2
-dash-core-components==1.9.1
-dash-html-components==1.0.3
+#dash-core-components==1.9.1
+#dash-html-components==1.0.3
 Werkzeug==1.0.0
-pandas==1.0.1
+pandas==2.2.0
 plotly==4.5.2
 gunicorn==20.0
