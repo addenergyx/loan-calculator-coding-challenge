@@ -12,7 +12,7 @@ html,body {
 }
 
 #side-panel {
-    box-shadow:  12px 12px 24px #cfd1d5, 
+    box-shadow:  12px 12px 24px #cfd1d5,
                  -12px -12px 24px #ffffff;
     background-color: #F1F2F6;
     height: 100vh;
@@ -22,7 +22,7 @@ html,body {
 }
 
 #side-panel H1 {
-    margin: 30px 0px;   
+    margin: 30px 0px;
 }
 
 
@@ -37,14 +37,14 @@ html,body {
     color: black;
     height: 100%;
     background: #F4F6FA;
-    box-shadow:  11px 11px 22px #d7d8dc, 
-                 -11px -11px 22px #ffffff; 
+    box-shadow:  11px 11px 22px #d7d8dc,
+                 -11px -11px 22px #ffffff;
 }
 
 .summary-card p, .summary-card H2 {
     margin: 0px;
 }
-    
+
 #side-data-card p {
     margin: 1rem;
 }
@@ -191,7 +191,7 @@ table tr {
   html,body {
     overflow-y: auto;
   }
-    
+
   #main-panel {
     overflow-y: hidden;
     margin-top: 20px;
@@ -200,47 +200,47 @@ table tr {
 
 @media screen and (max-width: 600px) {
 
-    
+
     #main-panel {
         height:auto;
     }
 }
 
 @media screen and (max-width: 600px) {
-  
+
   html,body {
     overflow-y: auto;
   }
-    
+
   #side-panel {
     margin-right: 0px;
     height: 120vh;
-  }    
-    
+  }
+
   #main-panel {
     overflow-y: hidden;
     margin-top: 20px;
     padding-top: 0px;
     height:auto;
   }
-    
+
   table.amortization-table {
     border: 0;
   }
-    
+
   table.amortization-table caption {
     font-size: 1.3em;
     color: black;
   }
-    
+
   table th  {
     display: none;
   }
-    
+
     #side-data-card {
         margin: 2rem 0;
     }
-    
+
 /*
   table.transaction-table thead {
     border: none;
@@ -253,21 +253,21 @@ table tr {
     width: 1px;
   }
 */
-  
+
   table.amortization-table tr {
     border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: .625em;
     color: black;
   }
-  
+
   table.amortization-table td {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: .8em;
     text-align: right;
   }
-  
+
   table.amortization-table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
@@ -278,11 +278,11 @@ table tr {
     font-weight: bold;
     text-transform: uppercase;
   }
-  
+
   table.amortization-table td:last-child {
     border-bottom: 0;
   }
-    
+
   .data-row {
     margin: 10px 0px;
   }
@@ -294,31 +294,31 @@ table tr {
     #side-panel label, #side-panel text, H1 {
         color: white !important;
     }
-    
+
     #side-panel {
         background: #171818;
-        box-shadow:  11px 11px 22px #0d0d0d, 
-                     -11px -11px 22px #212323; 
+        box-shadow:  11px 11px 22px #0d0d0d,
+                     -11px -11px 22px #212323;
     }
-    
+
     .summary-card {
         border-radius: 30px;
         border: 0px;
         color: white;
         height: 100%;
         background: #171818;
-        box-shadow:  11px 11px 22px #0d0d0d, 
-                     -11px -11px 22px #212323; 
+        box-shadow:  11px 11px 22px #0d0d0d,
+                     -11px -11px 22px #212323;
     }
-    
+
     p.balances, table.amortization-table td {
         color: grey;
     }
-    
+
     table.amortization-table td {
         border-bottom: 1px solid #84878A;
     }
-    
+
     #main-panel, #background, body {
         background-color: #171818;
     }
@@ -326,7 +326,7 @@ table tr {
     tr:nth-child(even) {
       background-color: #1C1D1D;
     }
-    
+
 }
 
 /* Github button */
@@ -389,7 +389,7 @@ body {
   background-color: #464646;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .landing-text {
