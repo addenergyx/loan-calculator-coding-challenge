@@ -5,6 +5,7 @@ html,body {
     padding: 0px;
     overflow-y: hidden;
     overflow-x: hidden;
+    background-color: #F1F2F6;
 }
 
 #side-panel, #main-panel {
@@ -29,6 +30,7 @@ html,body {
 #main-panel {
     overflow-y: scroll;
     height: 100vh;
+    background-color: #F1F2F6;
 }
 
 .summary-card {
@@ -370,10 +372,6 @@ table tr {
 
 /*codepen*/
 
-body {
-  background: #191a1a;
-}
-
 ._dash-undo-redo {
   background-color: transparent;
   color: white;
@@ -500,24 +498,3 @@ body {
   margin-top: 70px;
   font-size: 16px;
 }
-/*
-     FILE ARCHIVED ON 08:32:19 May 08, 2020 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 15:49:16 Sep 25, 2020.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  load_resource: 276.616
-  LoadShardBlock: 2241.601 (3)
-  captures_list: 2274.129
-  exclusion.robots: 0.127
-  RedisCDXSource: 8.704
-  exclusion.robots.policy: 0.118
-  PetaboxLoader3.datanode: 852.191 (4)
-  CDXLines.iter: 20.194 (3)
-  esindex: 0.011
-  PetaboxLoader3.resolve: 1610.235 (4)
-*/
