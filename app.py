@@ -14,7 +14,7 @@ from dash_extensions.callback import DashCallbackBlueprint
 # import plotly.express as px
 from random import randint
 
-external_stylesheets =['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP,
+external_stylesheets =['https://codepen.io/IvanNieto/pen/bRPJyb.css', dbc.themes.BOOTSTRAP,
                        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets,
@@ -282,7 +282,7 @@ body = html.Div(
                                             ]),
                                             dbc.Col([dcc.Input(value=0, id='loan-amount', type='number', min="0")], className='text-right')
                                         ], className="align-items-center"),
-                                       dbc.Row([ dbc.Col([dcc.Slider(id='loan-slider', min=0, max=250000, step=100)]),]),
+                                       dbc.Row([ dbc.Col([dcc.Slider(id='loan-slider', min=0, max=250000, step=100, marks=None)]),]),
                                        dbc.Row([
                                             dbc.Col([
                                                 html.P("Term Length (Months)", className='balances'),
@@ -291,7 +291,7 @@ body = html.Div(
                                                 dcc.Input(value=0, id='term-length', type='number', min="0"),
                                             ], className='text-right'),
                                         ], className="align-items-center"),
-                                        dbc.Row([ dbc.Col([dcc.Slider(id='term-slider', min=0, max=120, step=1)]),]),
+                                        dbc.Row([ dbc.Col([dcc.Slider(id='term-slider', min=0, max=120, step=1, marks=None)]),]),
                                         dbc.Row([
                                             dbc.Col([
                                                 html.P("Interest Rate (%)", className='balances'),
@@ -300,7 +300,7 @@ body = html.Div(
                                                 dcc.Input(value=0, id='interest-rate', type='number', min="0"),
                                             ], className='text-right'),
                                         ], className="align-items-center"),
-                                        dbc.Row([ dbc.Col([dcc.Slider(id='rate-slider', min=0, max=50, step=.1)]),]),
+                                        dbc.Row([ dbc.Col([dcc.Slider(id='rate-slider', min=0, max=50, step=.1, marks=None)]),]),
                                        
                                         html.Div(dbc.Row([ dbc.Col(dbc.Card(stats_card, className='summary-card stats-card'))]), hidden=True, id='statss' )
                                         
